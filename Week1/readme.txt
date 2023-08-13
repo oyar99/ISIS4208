@@ -27,4 +27,4 @@ Y luego seguir los siguientes pasos
     Opcionalmente se puede indicar un archivo de salida, de lo contrario la salida del algoritmo aparecerá en la terminal.
 
     Ejemplo:
-        1.exe > 1.in > 1.out
+        1.exe < 1.in > 1.out
