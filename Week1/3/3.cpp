@@ -3,8 +3,7 @@
 #include <unordered_set>
 #include <queue>
 #include <string>
-#include <functional>
-#include <assert.h>
+#include <unordered_map>
 
 using namespace std;
 
@@ -90,4 +89,43 @@ string solve() {
     // Si en algún momento, nos encontramos que ya habíamos asignado un nodo adyacente al grupo donde habría un conflicto, sabremos que no se puede
     // dividir el grupo de amigos en dos.
     // Complejidad: O(V + E)
+
+    // Para asignar los nodos a un grupo, usaremos la técnica de graph coloring. 
+    // Hash table para colorear los nodos del grafo. color[U] => 1 o color[U] => -2
+    unordered_map<int, int> color;
+
+    for (int u = 1; u <= N; ++u) {
+        if (color.count(u) > 0) {
+            continue;
+        }
+
+        queue<int> q;
+        q.push(u);
+
+        color[u] = 1;
+
+        while (!q.empty()) {
+            int v = q.front();
+            q.pop();
+
+            for (int w: adj[v]) {
+                if (color.count(w) > 0) {
+                    // El nodo adyacente a v ya ha sido coloreado. Debemos revisar si son del mismo color - lo que indicaría que harían parte del mismo grupo,
+                    // y por ende no se puede dividir el grupo de amigos en dos
+                    if (color[w] == color[v]) {
+                        return "NO";
+                    }
+                } else {
+                    // El nodo adyacente no ha sido coloreado. Por lo que procederemos a colorearlo del color opuesto a color[v]
+                    color[w] = ~color[v];
+
+                    q.push(w);
+                }
+            }
+        }
+    }
+
+    // En este punto el grafo ha sido coloreado de dos colores A y B tal que no existen dos nodos adyacentes del mismo color. Esta seria la forma en la que Juan
+    // puede dividir su grupo de amigos para invitarlos a su apartamento de tal forma de que no hayan personas que hayan peleado en cada reunion.
+    return "SI";
 }
