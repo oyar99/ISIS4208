@@ -1,6 +1,6 @@
 ### Ejercicios de grafos
 
-Solución a los 5 problemas de algoritmos de grafos propuestos para la semana #1 de ISIS4208.
+Solución a 3 de los 5 problemas de algoritmos de grafos propuestos para la semana #1 de ISIS4208.
 
 Para cada problema enumerado del 1 al 5 existe una carpeta que contiene:
 
