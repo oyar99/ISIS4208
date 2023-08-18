@@ -1,9 +1,12 @@
 {
     "files.associations": {
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "queue": "cpp",
+        "climits": "cpp"
     },
     "cSpell.language": "en,es-ES",
     "cSpell.words": [
+        "iterativamente",
         "redirección"
     ]
 }
