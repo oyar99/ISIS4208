@@ -2,6 +2,8 @@ import math
 import heapq
 import argparse
 
+## Clase para representar el nodo de un árbol en una codificación usando Huffman.
+## Cada nodo puede almacenar el carácter que representa para las hojas, o una frecuencia. Asi como los subarboles Izquierdo y derecho
 class Nodo:
   def __init__(self, caracter, frecuencia, izquierdo, derecho):
     self.caracter = caracter
@@ -12,6 +14,7 @@ class Nodo:
   def __lt__(self, otro):
     return self.frecuencia < otro.frecuencia
 
+## Calcular frecuencias de cada carácter en el texto usando un HashMap
 def calcular_frecuencias(texto):
   frecuencias = {}
 

@@ -1,6 +1,7 @@
 import math
 import argparse
 
+## Calcular frecuencias de cada carácter en el texto usando un HashMap
 def calcular_frecuencias(texto):
   frecuencias = {}
 
