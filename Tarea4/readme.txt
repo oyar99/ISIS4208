@@ -1,6 +1,6 @@
 ### Huffman y Shannon-Fano
 
-Implementación de codigos de Shannon-Fano y Huffman para comprimir texto.
+Implementación de códigos de Shannon-Fano y Huffman para comprimir texto.
 
 Las implementaciones fueron probadas con Python 3.9. Por lo que se recomienda
 instalar esa version para ejecutar los scripts. Ver: https://www.python.org/downloads/release/python-390/
