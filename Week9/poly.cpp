@@ -11,10 +11,11 @@ using namespace complex_literals;
 
 typedef complex<double> cd;
 
-vector<cd> ifft(vector<cd> &);
-vector<cd> fft(vector<cd> &, int);
+vector<cd> ifft(const vector<cd> &);
+vector<cd> fft(const vector<cd> &, int);
+vector<cd> mult(const vector<cd> &A, const vector<cd> &B);
 
-vector<cd> ifft(vector<cd> &a)
+vector<cd> ifft(const vector<cd> &a)
 {
     int n = a.size();
 
@@ -28,7 +29,7 @@ vector<cd> ifft(vector<cd> &a)
     return y;
 }
 
-vector<cd> fft(vector<cd> &a, int wf = 1)
+vector<cd> fft(const vector<cd> &a, int wf = 1)
 {
     int n = a.size();
 
@@ -71,7 +72,7 @@ vector<cd> fft(vector<cd> &a, int wf = 1)
     return y;
 }
 
-vector<cd> mult(vector<cd>& A, vector<cd>& B) 
+vector<cd> mult(const vector<cd> &A, const vector<cd> &B)
 {
     int n = A.size();
     assert(n == B.size());
@@ -81,7 +82,7 @@ vector<cd> mult(vector<cd>& A, vector<cd>& B)
 
     vector<cd> CP(n);
 
-    for (int i = 0; i < n; ++i) 
+    for (int i = 0; i < n; ++i)
     {
         CP[i] = AP[i] * BP[i];
     }
@@ -97,23 +98,23 @@ int main()
     int i = 0;
     while (!cin.eof())
     {
-        int a, b; cin >> a >> b;
+        int a, b;
+        cin >> a >> b;
 
         A.push_back(a);
         B.push_back(b);
     }
 
-    // 10
-    // 16
-
-    while (A.size() & (A.size() - 1) != 0) {
+    while (A.size() & (A.size() - 1) != 0)
+    {
         A.push_back(0);
         B.push_back(0);
     }
 
     vector<cd> C = mult(A, B);
 
-    for (int i = 0; i < C.size(); ++i) {
+    for (int i = 0; i < C.size(); ++i)
+    {
         cout << (int)C[i].real() << endl;
     }
 }
