@@ -2,7 +2,8 @@
     "files.associations": {
         "xstring": "cpp",
         "queue": "cpp",
-        "climits": "cpp"
+        "climits": "cpp",
+        "vector": "cpp"
     },
     "cSpell.language": "en,es-ES",
     "cSpell.words": [
