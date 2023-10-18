@@ -90,8 +90,17 @@ vector<cd> mult(const vector<cd> &A, const vector<cd> &B)
     return ifft(CP);
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    int useNormalMultAlgo = 0;
+    if (argc >= 2)
+    {
+        if (argv[1][0] == 'M')
+        {
+            useNormalMultAlgo = 1;
+        }
+    }
+
     vector<cd> A;
     vector<cd> B;
 
@@ -105,16 +114,23 @@ int main()
         B.push_back(b);
     }
 
-    while (A.size() & (A.size() - 1) != 0)
+    if (useNormalMultAlgo == 1)
     {
-        A.push_back(0);
-        B.push_back(0);
+        // TODO: normal algo
     }
-
-    vector<cd> C = mult(A, B);
-
-    for (int i = 0; i < C.size(); ++i)
+    else
     {
-        cout << (int)C[i].real() << endl;
+        while (A.size() & (A.size() - 1) != 0)
+        {
+            A.push_back(0);
+            B.push_back(0);
+        }
+
+        vector<cd> C = mult(A, B);
+
+        for (int i = 0; i < C.size(); ++i)
+        {
+            cout << (int)C[i].real() << endl;
+        }
     }
 }
