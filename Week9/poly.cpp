@@ -118,17 +118,6 @@ int main(int argc, char *argv[])
     {
         vector<cd> C;
 
-        int i = 0;
-        while (!cin.eof())
-        {
-            int a, b;
-            cin >> a >> b;
-
-            A[i] = a;
-            B[i] = b;
-            i++;
-        }
-
         int n = A.size();
         int m = B.size();
 
