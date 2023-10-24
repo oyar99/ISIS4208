@@ -116,7 +116,23 @@ int main(int argc, char *argv[])
 
     if (useNormalMultAlgo == 1)
     {
-        // TODO: normal algo
+        vector<cd> C;
+
+        int n = A.size();
+        int m = B.size();
+
+        for (int j = 0; j < n + m; j++) {
+            for (int k = 0; k < j; k++) {
+                C[i] = A[k] * B[j - k];
+            }
+        }
+
+        int x = C.size();
+
+        for (int i = 0; i < x; ++i)
+        {
+            cout << C[i] << endl;
+        }
     }
     else
     {
