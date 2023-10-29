@@ -81,13 +81,19 @@ int main() {
     */
 
     //std::string t1_preorder = "1(2(4())3(5()))";
-    std::string t2_preorder = "2(1(0()7(2()))3(9()1()))";
+    //std::string t2_preorder = "2(1(0()7(2()))3(9()1()))";
 
     //std::string t1_preorder = "0(1(4()5(8()9()))2(6(10(12()13(15())14()))7(11()))3())";
     //std::string t2_preorder = "0(1(4()5(9()))2(6(10(12()13(18()))9()))1())";
 
-    std::string t1_preorder = "1(2(3()4())5())";
+    //std::string t1_preorder = "1(2(3()4())5())";
     //std::string t2_preorder = "1(2(3()4())5())";
+
+    std::string t1_preorder = "1(2(4()5(6()))3())";
+    std::string t2_preorder = "1(5(2(4()6()))3())";
+
+    //std::string t1_preorder = "1(2()3()";
+    //std::string t2_preorder = "1(5())";
 
     //std::getline(std::cin, t1_preorder);
     //std::getline(std::cin, t2_preorder);
