@@ -2,7 +2,6 @@
 #define TREE_H
 
 #include <vector>
-#include <unordered_set>
 #include <string>
 
 /**
@@ -20,12 +19,15 @@ struct Tree {
     // Adjacency list for T.
     // adj[u] corresponds to the children of u
     std::vector<std::vector<int>> adj;
-    // Id of the root node.
-    int root;
     // Maps a node to its label.
     std::vector<int> labels;
     // Maps a node to its parent.
     std::vector<int> parent;
+
+    // Id of the root node.
+    int root;
+    // Number of nodes in T.
+    int n;
 
 
     /**
@@ -34,7 +36,7 @@ struct Tree {
      * The pre-order traversal has additional parenthesis that enclose the sub-tree rooted at u
      * for all u.
      * 
-     * The running time complexity is of the order O(3n) where n corresponds to the number of nodes in T.
+     * The running time complexity is of the order O(n) where n corresponds to the number of nodes in T.
     */
     Tree(const std::string& pre_order);
 
@@ -56,14 +58,70 @@ struct Tree {
      * 2(1(0()7(2()))3(9()1()))
      * 
     */
-    std::string pre_order();
+    std::string pre_order() const;
 
     /**
      * Uses Heavy-light decomposition to return a set of vertex disjoint paths
      * from the tree T. It is guaranteed that any path from a leaf to the root
      * will go through at most O(lgn) paths from this set.
+     * 
+     * Returns ordered vectors with the paths. 
+     * 
+     * This decomposition takes linear time in the number of nodes in T.
     */
-    std::vector<std::unordered_set<int>> decompose();
+    std::vector<std::vector<int>> decompose() const;
+
+    /**
+     * Computes the leftmost leaf of each node u.
+    */
+    std::vector<int> leftmost() const;
+
+    /**
+     * Computes the keyroots_l of T.
+     * 
+     * The keyroots are the set of nodes with lowest id in the preorder traversal
+     * among all other nodes that share the same leftmost leaf.
+     * 
+     *                        5
+     *                       / \
+     *                      /   \
+     *                     1     3
+     *                    / \   / \
+     *                   0   7 9   4
+     *                      /
+     *                     6 
+     * 
+     * The keyroots of the above tree are {3, 4, 5, 7}.
+     * 
+     * These can be computed in linear time by a simple traversal of T.
+    */
+    std::vector<int> keyroots_l() const;
+
+    /**
+     * Computes the rightmost leaf of each node u.
+    */
+    std::vector<int> rightmost() const;
+
+    /**
+     * Computes the keyroots_r of T.
+     * 
+     * The keyroots are the set of nodes with lowest id in the preorder traversal
+     * among all other nodes that share the same rightmost leaf.
+     * 
+     *                        5
+     *                       / \
+     *                      /   \
+     *                     1     3
+     *                    / \   / \
+     *                   0   7 9   4
+     *                      /
+     *                     6 
+     * 
+     * The keyroots of the above tree are {0, 1, 5, 9}.
+     * 
+     * These can be computed in linear time by a simple traversal of T.
+    */
+    std::vector<int> keyroots_r() const;
 };
 
 #endif

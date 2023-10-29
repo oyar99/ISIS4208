@@ -80,22 +80,22 @@ int main() {
      * 
     */
 
-    std::string t1_preorder = "1(2(4())3(5()))";
+    //std::string t1_preorder = "1(2(4())3(5()))";
     std::string t2_preorder = "2(1(0()7(2()))3(9()1()))";
+
+    //std::string t1_preorder = "0(1(4()5(8()9()))2(6(10(12()13(15())14()))7(11()))3())";
+    //std::string t2_preorder = "0(1(4()5(9()))2(6(10(12()13(18()))9()))1())";
+
+    std::string t1_preorder = "1(2(3()4())5())";
+    //std::string t2_preorder = "1(2(3()4())5())";
 
     //std::getline(std::cin, t1_preorder);
     //std::getline(std::cin, t2_preorder);
 
-    // This ensures n > m so the complexity can still be viewed in terms of n.
-    if (t1_preorder.length() < t2_preorder.length()) {
-        std::swap(t1_preorder, t2_preorder);
-    }
-
-    int n = t1_preorder.length() / 3;
-    int m = t2_preorder.length() / 3;
-
     Tree t1(t1_preorder);
     Tree t2(t2_preorder);
+
+    auto a = t2.keyroots_l();
 
     std::string algorithm = "ZhangShasha";
     int d = -1;
