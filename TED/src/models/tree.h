@@ -33,11 +33,13 @@ struct Tree {
      * 
      * The pre-order traversal has additional parenthesis that enclose the sub-tree rooted at u
      * for all u.
+     * 
+     * The running time complexity is of the order O(3n) where n corresponds to the number of nodes in T.
     */
-    Tree(std::string pre_order);
+    Tree(const std::string& pre_order);
 
     /**
-     * Gets a preorder string unique representation of T.
+     * Gets a preorder string unique representation of T in linear time.
      * For instance, the tree
      *          
      *                        2
@@ -62,16 +64,6 @@ struct Tree {
      * will go through at most O(lgn) paths from this set.
     */
     std::vector<std::unordered_set<int>> decompose();
-
-    /**
-     * Returns a set of the children of u.
-    */
-    std::unordered_set<int> get_children(int u);
-
-    /**
-     * adds a child v to node u.
-    */
-    void add_child(int u, int v);
 };
 
 #endif

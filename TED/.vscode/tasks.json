@@ -3,24 +3,24 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build TED",
-            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${fileDirname}\\*.cpp",
-                "-g",
-                "${fileDirname}\\src\\models\\*.cpp",
-                "-g",
-                "${fileDirname}\\src\\procedures\\*.cpp",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-I",
                 "./src/models",
                 "-I",
-                "./src/procedures"
+                "./src/procedures",
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}\\*.cpp",
+                "-g",
+                "${workspaceFolder}\\src\\models\\*.cpp",
+                "-g",
+                "${workspaceFolder}\\src\\procedures\\*.cpp",
+                "-o",
+                "${workspaceFolder}\\ted.exe",
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
