@@ -101,8 +101,6 @@ int main() {
     Tree t1(t1_preorder);
     Tree t2(t2_preorder);
 
-    auto a = t2.keyroots_l();
-
     std::string algorithm = "ZhangShasha";
     int d = -1;
 

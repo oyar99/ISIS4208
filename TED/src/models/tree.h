@@ -37,6 +37,10 @@ struct Tree {
      * for all u.
      * 
      * The running time complexity is of the order O(n) where n corresponds to the number of nodes in T.
+     * 
+     * @param pre_order The string representation of the preorder traversal of T
+     * 
+     * @returns An ordered labeled rooted tree constructed from the given pre-order traversal
     */
     Tree(const std::string& pre_order);
 
@@ -57,6 +61,7 @@ struct Tree {
      * 
      * 2(1(0()7(2()))3(9()1()))
      * 
+     * @returns The preorder traversal of T
     */
     std::string pre_order() const;
 
@@ -68,11 +73,15 @@ struct Tree {
      * Returns ordered vectors with the paths. 
      * 
      * This decomposition takes linear time in the number of nodes in T.
+     * 
+     * @returns A collection of paths
     */
     std::vector<std::vector<int>> decompose() const;
 
     /**
      * Computes the leftmost leaf of each node u.
+     * 
+     * @returns A map where the leftmost leaf of each node can be retrieved
     */
     std::vector<int> leftmost() const;
 
@@ -94,11 +103,15 @@ struct Tree {
      * The keyroots of the above tree are {3, 4, 5, 7}.
      * 
      * These can be computed in linear time by a simple traversal of T.
+     * 
+     * @returns The keyroots of T for the leftmost leaves
     */
     std::vector<int> keyroots_l() const;
 
     /**
      * Computes the rightmost leaf of each node u.
+     * 
+     * @returns A map where the rightmost leaf of each node can be retrieved
     */
     std::vector<int> rightmost() const;
 
@@ -120,6 +133,8 @@ struct Tree {
      * The keyroots of the above tree are {0, 1, 5, 9}.
      * 
      * These can be computed in linear time by a simple traversal of T.
+     * 
+     * @returns The keyroots of T for the rightmost leaves
     */
     std::vector<int> keyroots_r() const;
 };

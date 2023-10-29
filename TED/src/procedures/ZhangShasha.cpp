@@ -1,4 +1,4 @@
-#include <ZhangShasha.h>
+#include <zhangShasha.h>
 #include <algorithm>
 
 int min(int a, int b, int c);
@@ -75,6 +75,10 @@ int ZhangShasha::ted(const Tree& t1, const Tree& t2) {
     }
 
     return td[1][1];
+}
+
+int ZhangShasha::fed(const Tree& t1, const Tree& t2, const std::vector<std::vector<int>>& ted, int i, int j) {
+    return 0;
 }
 
 int min(int a, int b, int c) {
